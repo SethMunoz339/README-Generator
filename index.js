@@ -1,5 +1,7 @@
+// include package and link to other js
 const inquirer = require('inquirer');
 const { generateMarkdown } = require('./generateMarkdown');
+// use inquirer to prompt user for README data
 inquirer
   .prompt([
     {
@@ -28,9 +30,20 @@ inquirer
       message: 'Enter contributing guidelines:',
     },
     {
+      type: 'list',
+      name: 'license',
+      message: 'Select a license:',
+      choices: ['MIT', 'Apache-2.0', 'GPL-3.0'],
+    },
+    {
       type: 'input',
       name: 'credits',
       message: 'Enter credits and acknowledgements:',
+    },
+    {
+      type: 'input',
+      name: 'test',
+      message: 'Enter instructions to test the application:',
     },
     {
       type: 'input',
@@ -42,6 +55,7 @@ inquirer
       name: 'email',
       message: 'Enter your email address:',
     },
+    // call the function to generate the README
   ])
   .then((answers) => {
     generateMarkdown(answers);
@@ -50,11 +64,4 @@ inquirer
     console.error(error);
   });
 
-// // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
 
-// // TODO: Create a function to initialize app
-// function init() {}
-
-// // Function call to initialize app
-// init();
