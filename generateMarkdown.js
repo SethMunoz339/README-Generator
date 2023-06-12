@@ -13,7 +13,7 @@ function generateMarkdown(answers) {
   const title = `# ${answers.title}`;
   const licenseBadge = renderLicenseBadge(answers.license);
   const description = answers.description;
-  const tableOfContents = '## Table of Contents\n\n- [Installation](#installation)\n- [Usage](#usage)\n- [Contributing](#contributing)' + (answers.license ? '\n- [License](#license)' : '') + '\n- [Credits](#credits)'+ '\n- [Testing](#test)';
+  const tableOfContents = '## Table of Contents\n\n- [Installation](#installation)\n- [Usage](#usage)\n- [Contributing](#contributing)' + (answers.license ? '\n- [License](#license)' : '') + '\n- [Credits](#credits)'+ '\n- [Testing](#testing)';
   const installation = `## Installation\n\n${answers.installation}`;
   const usage = `## Usage\n\n${answers.usage}`;
   const contributing = `## Contributing\n\n${answers.contributing}`;
