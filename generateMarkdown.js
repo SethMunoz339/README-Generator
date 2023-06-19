@@ -13,7 +13,7 @@ function generateMarkdown(answers) {
   const title = `# ${answers.title}`;
   const licenseBadge = renderLicenseBadge(answers.license);
   const description = answers.description;
-  const tableOfContents = '## Table of Contents\n\n- [Installation](#installation)\n- [Usage](#usage)\n- [Contributing](#contributing)' + (answers.license ? '\n- [License](#license)' : '') + '\n- [Credits](#credits)' + '\n- [Testing](#testing)';
+  const tableOfContents = '## Table of Contents\n\n- [Installation](#installation)\n- [Usage](#usage)\n- [Contributing](#contributing)' + (answers.license ? '\n- [License](#license)' : '') + '\n- [Credits](#credits)' + '\n- [Questions](#questions)' ;
   const installation = `## Installation\n\n${answers.installation}`;
   const usage = `## Usage\n\n${answers.usage}`;
   const contributing = `## Contributing\n\n${answers.contributing}`;
@@ -21,7 +21,7 @@ function generateMarkdown(answers) {
   const noLicenseSection = renderNoLicense(answers.license);
   const credits = `## Credits\n\n${answers.credits}`;
   const test = `## Testing\n\n${answers.test}`;
-  const githubLink = `Find me on GitHub: [${answers.github}](https://github.com/${answers.github})`;
+  const githubLink = `## Questions\n\nFind me on GitHub: [${answers.github}](https://github.com/${answers.github})`;
   const emailLink = `For any questions, you can reach me at [${answers.email}](mailto:${answers.email})`;
 
   const readmeContent = `${title}\n\n${licenseBadge}\n\n${description}\n\n${tableOfContents}\n\n${installation}\n\n${usage}\n\n${contributing}\n\n${noLicenseSection}${licenseSection}\n\n${credits}\n\n${test}\n\n${githubLink}\n\n${emailLink}`;
