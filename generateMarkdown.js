@@ -13,18 +13,17 @@ function generateMarkdown(answers) {
   const title = `# ${answers.title}`;
   const licenseBadge = renderLicenseBadge(answers.license);
   const description = answers.description;
-  const tableOfContents = '## Table of Contents\n\n- [Installation](#installation)\n- [Usage](#usage)\n- [Contributing](#contributing)' + (answers.license ? '\n- [License](#license)' : '') + '\n- [Credits](#credits)' + '\n- [Questions](#questions)' ;
+  const tableOfContents = '## Table of Contents\n\n- [Installation](#installation)\n- [Usage](#usage)\n- [Contributing](#contributing)' + (answers.license ? '\n- [License](#license)' : '') + '\n- [Credits](#credits)' + '\n- [Questions](#questions)';
   const installation = `## Installation\n\n${answers.installation}`;
   const usage = `## Usage\n\n${answers.usage}`;
   const contributing = `## Contributing\n\n${answers.contributing}`;
   const licenseSection = renderLicenseSection(answers.license);
-  const noLicenseSection = renderNoLicense(answers.license);
   const credits = `## Credits\n\n${answers.credits}`;
   const test = `## Testing\n\n${answers.test}`;
   const githubLink = `## Questions\n\nFind me on GitHub: [${answers.github}](https://github.com/${answers.github})`;
   const emailLink = `For any questions, you can reach me at [${answers.email}](mailto:${answers.email})`;
 
-  const readmeContent = `${title}\n\n${licenseBadge}\n\n${description}\n\n${tableOfContents}\n\n${installation}\n\n${usage}\n\n${contributing}\n\n${noLicenseSection}${licenseSection}\n\n${credits}\n\n${test}\n\n${githubLink}\n\n${emailLink}`;
+  const readmeContent = `${title}\n\n${licenseBadge}\n\n${description}\n\n${tableOfContents}\n\n${installation}\n\n${usage}\n\n${contributing}\n\n${licenseSection}\n\n${credits}\n\n${test}\n\n${githubLink}\n\n${emailLink}`;
 
   // write the README file
   fs.writeFile('README.md', readmeContent, (err) => {
@@ -51,8 +50,9 @@ function renderLicenseBadge(license) {
       badge = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)';
       break;
     case 'NONE':
-      badge = '';
-      break;
+      const licenseBadge = '';
+      return licenseBadge;
+
     default:
       break;
   }
@@ -79,8 +79,7 @@ function renderLicenseSection(license) {
       link = 'https://www.gnu.org/licenses/gpl-3.0';
       break;
     case 'NONE':
-      renderNoLicense();
-      const licenseSection = ""
+      const licenseSection = `## License\n\nThis project is not licensed.`;
       return licenseSection;
 
     default:
@@ -93,25 +92,6 @@ function renderLicenseSection(license) {
   return licenseSection;
 }
 
-function renderNoLicense(license) {
-
-  let link = '';
-
-  // Generate the appropriate link based on the license type
-  switch (license) {
-    case 'NONE':
-      link = '';
-      break;
-
-    default:
-      break;
-  }
-
-  // Generate the license section with the link
-  const noLicenseSection = `## License\n\nThis project is not licensed.`;
-
-  return noLicenseSection;
-}
 
 module.exports = {
   generateMarkdown,
