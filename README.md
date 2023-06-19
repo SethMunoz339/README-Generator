@@ -13,6 +13,7 @@ into a new README file.
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Video](#video)
 - [Contributing](#contributing)
 - [License](#license)
 - [Credits](#credits)
