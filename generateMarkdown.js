@@ -49,7 +49,9 @@ function renderLicenseBadge(license) {
     case 'GPL-3.0':
       badge = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)';
       break;
-
+      case 'NONE':
+        badge ='';
+        break;
     default:
       break;
   }
@@ -75,6 +77,9 @@ function renderLicenseSection(license) {
     case 'GPL-3.0':
       link = 'https://www.gnu.org/licenses/gpl-3.0';
       break;
+      case 'NONE':
+      renderNoLicense();
+      break;
 
     default:
       break;
@@ -84,6 +89,26 @@ function renderLicenseSection(license) {
   const licenseSection = `## License\n\nThis project is licensed under the [${license}](${link}) license.`;
 
   return licenseSection;
+}
+
+function renderNoLicense(license) {
+ 
+  let link = '';
+
+  // Generate the appropriate link based on the license type
+  switch (license) {
+    case 'NONE':
+      link = '';
+      break;
+    
+    default:
+      break;
+  }
+
+  // Generate the license section with the link
+  const noLicenseSection = `## License\n\nThis project is not licensed.`;
+
+  return noLicenseSection;
 }
 
 module.exports = {
