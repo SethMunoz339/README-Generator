@@ -29,6 +29,10 @@ title, description, installation, usage, contribution guidelines, and test instr
 contact purposes. in addition, the user selects a license to use for the application from a list of choices.Once all of the selections are confirmed,  
 the application creates a new README markdown file using the entered data.
 
+## Video
+
+
+
 ## Contributing
 
 This application was created by Seth MUnoz. No contributions are neccesary.
